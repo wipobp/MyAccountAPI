@@ -23,25 +23,13 @@ public interface AccountsApi {
 
     @ApiOperation(value = "Create An Account", notes = "Add Account", response = Void.class, tags={ "1_0_0", })
     @ApiResponses(value = {  })
-    @RequestMapping(value = "/accounts",
-        produces = { "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
-    default ResponseEntity<Void> 2(
-
-@ApiParam(value = "Account holder name"  ) @RequestBody String name
-
-,
-
-@ApiParam(value = "Account Type"  ) @RequestBody String type
-
-,
-
-@ApiParam(value = "Account Holder Address"  ) @RequestBody Address1 address
-
-) {
+    @RequestMapping(value = "/accounts", produces = { "application/json" }, consumes = { "application/json" }, method = RequestMethod.POST)
+    default ResponseEntity<Void> addAccount(
+    		@ApiParam(value = "Account holder name"  ) @RequestBody String name, 
+    		@ApiParam(value = "Account Type"  ) @RequestBody String type,
+    		@ApiParam(value = "Account Holder Address"  ) @RequestBody Address1 address
+    ) {
         // do some magic!
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-
 }
